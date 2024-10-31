@@ -30,7 +30,8 @@ jobs:
           
       - name: display contents of hello.txt
         run: |
-          cp hello.txt ././artifacts/
+          mkdir artifacts
+          cp hello.txt ./artifacts/
           ls -lrt
           cat ./artifacts/hello.txt
     
