@@ -23,15 +23,13 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: create artifacts folder
+        run: mkdir artifacts
       - name: Dwnld
         uses: actions/download-artifact@v4
         with:
           name: hello-artifact
-          
+          path: ./artifacts/
       - name: display contents of hello.txt
-        run: |
-          mkdir artifacts
-          cp hello.txt ./artifacts/
-          ls -lrt
-          cat ./artifacts/hello.txt
+        run: cat ./artifacts/hello.txt
     
