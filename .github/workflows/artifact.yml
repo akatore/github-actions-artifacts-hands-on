@@ -25,11 +25,11 @@ jobs:
     steps:
       - name: create artifacts folder
         run: mkdir artifacts
-      - name: Dwnld
+      - name: Download text file
         uses: actions/download-artifact@v4
         with:
           name: hello-artifact
           path: ./artifacts/
-      - name: display contents of hello.txt
+      - name: Display content of the text file
         run: cat ./artifacts/hello.txt
     
