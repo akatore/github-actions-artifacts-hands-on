@@ -3,7 +3,7 @@ name: Workflow Demo
 on: [push]
 
 jobs:
-  build:
+  build:  
     runs-on: ubuntu-latest
 
     steps:
@@ -17,4 +17,16 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: hello-artifact
-        path: hello.txt
+        path: ./artifacts/hello.txt
+
+  download:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dwnld
+        uses: actions/download-artifact@v4
+        with:
+          name: hello-artifact
+      - name: display contents of hello.txt
+        run: cat ./artifacts/hello.txt
+    
